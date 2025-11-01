@@ -19,6 +19,7 @@
 		<module>java-8</module>
 		<module>java-11</module>
         <module>java-17</module>
+        <module>java-2-se</module>
     </modules>
 
 	<properties>

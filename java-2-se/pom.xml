@@ -6,7 +6,13 @@
         <artifactId>java-version</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <artifactId>java-2-se</artifactId>
-    <name>Archetype - java-2-se</name>
-    <url>http://maven.apache.org</url>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>java-2-se</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 </project>
