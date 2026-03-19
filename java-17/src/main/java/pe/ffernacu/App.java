@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pe.ffernacu.service.CustomerServiceImpl;
 import pe.ffernacu.service.ProviderServiceImpl;
 
+import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
+
 @SpringBootApplication
 public class App implements CommandLineRunner
 {
@@ -18,15 +21,43 @@ public class App implements CommandLineRunner
         SpringApplication.run(App.class, args);
     }
 
+
+    private boolean validInteger(Integer value1, Integer value2){
+          boolean valid = (value1+value2 == 1) || (value1==1 || value2==1);
+          log.info("{}", valid);
+          return valid;
+    }
+
+    private boolean checkMultiplesOptimized(Integer value){
+        boolean result = value % 7 == 0 || value % 5 == 0;
+        log.info("{}", result);
+        return result;
+    }
+
+    private boolean isInRangeAndEven(int value){
+        var result =  value % 2 == 0 && value >=10 && value <= 50;
+        log.info("{}", result);
+        return result;
+    }
+
+    private boolean isValidUsername(String value){
+        var result = value !=null && value.length() > 5 && !value.contains("admin");
+        log.info("{}", result);
+        return result;
+    }
+
+    private boolean canAccessFeature(boolean isAuthenticated  ,boolean hasPremiumSubscription ){
+        boolean IS_ADMIN = true;
+        var result =  isAuthenticated && (hasPremiumSubscription || IS_ADMIN);
+        log.info("{}", result);
+        return result;
+    }
+
     @Override
     public void run(String... args) throws Exception {
-        CustomerServiceImpl customerService = new CustomerServiceImpl();
-        var result1 = customerService.validUser("user1");
-        log.info("{}", result1);
-        var result2 = customerService.saveCustomer("user2");
-        log.info("{}", result2);
-        ProviderServiceImpl providerService = new ProviderServiceImpl();
-        var result3 = providerService.validUser("provider1");
-        log.info("{}", result3);
+        isValidUsername("admin");
+        //isInRangeAndEven(2);
+        //checkMultiplesOptimized(15);
+        //validInteger(3,-2);
     }
 }
