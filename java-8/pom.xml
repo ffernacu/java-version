@@ -6,7 +6,6 @@
         <groupId>pe.ffernacu</groupId>
         <artifactId>java-version</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/>
     </parent>
 
     <artifactId>java-8</artifactId>
